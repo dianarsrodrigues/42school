@@ -3,23 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isalpha.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: diarodri <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: dianarodrigues <dianarodrigues@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 16:09:35 by diarodri          #+#    #+#             */
-/*   Updated: 2022/11/02 16:09:40 by diarodri         ###   ########.fr       */
+/*   Updated: 2022/11/02 23:24:49 by dianarodrig      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <unistd.h>
 
-
 int	ft_isalpha(int c)
 {
-	if (c <= 65 && c >= 90 || c <= 97 && c >= 122)
-	{
-		write(1, &c, 1);
-	}
+	if ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'))
+		return (1);
 	return (0);
 }
 
