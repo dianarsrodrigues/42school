@@ -1,33 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strelen.c                                       :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: diarodri <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/03 10:32:23 by diarodri          #+#    #+#             */
-/*   Updated: 2022/11/03 10:32:29 by diarodri         ###   ########.fr       */
+/*   Created: 2022/11/03 11:54:58 by diarodri          #+#    #+#             */
+/*   Updated: 2022/11/03 11:55:00 by diarodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 
-size_t	ft_strlen(const char *str)
+/*void	*ft_memset(void *str, int c, size_t n)
 {
-	size_t	a;
+	size_t	i;
+	char	*ptr;
 
-	a = 0;
-	while (str[a] != '\0')
+	ptr = (char *)str;
+	i = 0;
+	while (i < n)
 	{
-		a++;
+		ptr[i] = c;
+		i++;
 	}
-	return (a);
+	return (str);
+}*/
+
+void	ft_bzero(void *str, size_t n)
+{
+	ft_memset(str, '\0', n);
 }
+
 /*int	main(void)
 {
-	char a[15] = "Diana";
+	char str[15] = "Diana Rodrigues";
 
-	printf("Length of string a = %zu \n",ft_strlen(a));
+	printf("Before bzero : %s\n", str);
+	ft_bzero(str, 6);
+	printf("After bzero :%s\n", str);
 	return(0);
-	// using the %zu format specifier to print size_t
 }*/

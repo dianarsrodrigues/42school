@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: diarodri <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/03 14:26:09 by diarodri          #+#    #+#             */
-/*   Updated: 2022/11/03 14:26:15 by diarodri         ###   ########.fr       */
+/*   Created: 2022/11/03 13:46:13 by diarodri          #+#    #+#             */
+/*   Updated: 2022/11/03 13:46:14 by diarodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,36 +22,58 @@
 		a++;
 	}
 	return (a);
+}
+
+void	*ft_memcpy(void *dest, const void *str, size_t n)
+{
+	char	*cstr;
+	char	*cdest;
+	int		i;
+
+	i = 0;
+	cstr = (char *)str;
+	cdest = (char *)dest;
+	while (i < n)
+	{
+		cdest[i] = cstr[i];
+		i++;
+	}
 }*/
 
-size_t	ft_strlcpy(char *dst, const char *src, size_t size)
+void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	size_t	i;
 	char	*csrc;
+	char	*cdest;
+	int		i;
 
 	csrc = (char *)src;
+	cdest = (char *)dest;
 	i = 0;
-	if (size > 0)
+	if (csrc > cdest)
 	{
-		while (csrc[i] && i < size - 1)
+		while (i < n)
 		{
-			dst[i] = csrc[i];
+			cdest[i] = csrc[i];
 			i++;
 		}
-		dst[i] = '\0';
 	}
-	while (src[i])
-		i++;
-	return (i);
+	else
+	{
+		while (i != n)
+		{
+			cdest[n - i - 1] = csrc[n - i - 1];
+			i++;
+		}
+	}
+	return (cdest);
 }
 
 /*int	main(void)
 {
-	char src[] = "teste";
-	int size = 5;
-	char dest[] = "ole";
-	
-	int sizes = ft_strlcpy (dest, src, size);
-	printf("%d\n", sizes);
-	printf("%s", dest);
+	char str[20] = "Diana Rodrigues";
+
+	printf("Before memmove : %s\n", str);
+	ft_memmove(str+5, str, ft_strlen(str)+1);
+	printf("After memmove : %s\n", str);
+	return(0);
 }*/

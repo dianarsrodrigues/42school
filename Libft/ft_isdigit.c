@@ -1,26 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dianarodrigues <dianarodrigues@student.    +#+  +:+       +#+        */
+/*   By: diarodri <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/02 16:09:35 by diarodri          #+#    #+#             */
-/*   Updated: 2022/11/02 23:24:49 by dianarodrig      ###   ########.fr       */
+/*   Created: 2022/11/03 09:53:12 by diarodri          #+#    #+#             */
+/*   Updated: 2022/11/03 09:53:15 by diarodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 
-int	ft_isalpha(int c)
+int	ft_isdigit(int c)
 {
-	if ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'))
+	if (c >= '0' && c <= '9')
 		return (1);
 	return (0);
 }
 
 /*int	main (void)
 {
-	char n = 'a';
-	printf("Result when uppercase alphabet is passed: %d", ft_isalpha(n));
+	char n = '2';
+	printf("Result when numeric character is passed: %d", ft_isdigit(n));
 }*/

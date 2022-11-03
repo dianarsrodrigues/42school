@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: diarodri <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/03 15:33:22 by diarodri          #+#    #+#             */
-/*   Updated: 2022/11/03 15:33:24 by diarodri         ###   ########.fr       */
+/*   Created: 2022/11/03 13:24:50 by diarodri          #+#    #+#             */
+/*   Updated: 2022/11/03 13:24:51 by diarodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 
-size_t	ft_strlen(const char *str)
+/*size_t	ft_strlen(const char *str)
 {
 	size_t	a;
 
@@ -22,43 +22,31 @@ size_t	ft_strlen(const char *str)
 		a++;
 	}
 	return (a);
-}
+}*/
 
-size_t	ft_strlcat(char *dst, const char *src, size_t size)
+void	*ft_memcpy(void *dest, const void *str, size_t n)
 {
-	size_t	i;
-	size_t	j;
-	char	*csrc;
+	char	*cstr;
+	char	*cdest;
+	int		i;
 
-	csrc = (char *)src;
 	i = 0;
-	while (i < size && *dst)
+	cstr = (char *)str;
+	cdest = (char *)dest;
+	while (i < n)
 	{
-		dst++;
+		cdest[i] = cstr[i];
 		i++;
 	}
-	if (i == size)
-		return (i + ft_strlen(src));
-	j = 0;
-	while (csrc[j])
-	{
-		if (j < size - i - 1)
-			*dst++ = csrc[j];
-		j++;
-	}
-	*dst = '\0';
-	return (j + i);
 }
 
 /*int	main(void)
 {
-	char    dest[11] = "fffff";
-	char    src[10] = "ddddd";
-	int	test;
-	int	fun;
-	
-	test = ft_strlcat(dest, src, -1);
-	printf("%i \n", test);
-	printf("%s \n", dest);
-	return (0);
+	const char str[] = "Diana Rodrigues";
+	char dest[] = "42 Porto";
+
+	printf("Before memcpy : %s\n", dest);
+	ft_memcpy(dest, str, ft_strlen(str)+1);
+	printf("After memcpy : %s\n", dest);
+	return(0);
 }*/

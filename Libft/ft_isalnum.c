@@ -1,26 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   ft_isalnum.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dianarodrigues <dianarodrigues@student.    +#+  +:+       +#+        */
+/*   By: diarodri <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/02 16:09:35 by diarodri          #+#    #+#             */
-/*   Updated: 2022/11/02 23:24:49 by dianarodrig      ###   ########.fr       */
+/*   Created: 2022/11/03 10:02:30 by diarodri          #+#    #+#             */
+/*   Updated: 2022/11/03 10:02:36 by diarodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 
-int	ft_isalpha(int c)
+int	ft_isalnum(int c)
 {
-	if ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'))
+	if ((c >= '0' && c <= '9') || (c >= 'a' && c <= 'z')
+		|| (c >= 'A' && c <= 'Z'))
 		return (1);
 	return (0);
 }
 
 /*int	main (void)
 {
-	char n = 'a';
-	printf("Result when uppercase alphabet is passed: %d", ft_isalpha(n));
+	char n = 'A';
+	printf("Result when alphanumeric character is passed: %d", ft_isalnum(n));
 }*/
