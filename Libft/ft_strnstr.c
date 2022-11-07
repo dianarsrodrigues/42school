@@ -1,50 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strstr.c                                        :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: diarodri <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/25 15:25:35 by diarodri          #+#    #+#             */
-/*   Updated: 2022/07/26 12:45:55 by diarodri         ###   ########.fr       */
+/*   Created: 2022/11/05 19:16:18 by diarodri          #+#    #+#             */
+/*   Updated: 2022/11/06 23:36:58 by diarodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
 #include <stdio.h>
-#include <string.h>
 
-char	*ft_strstr(char *str, char *to_find)
+char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
-	int	i;
-	int	j;
+	size_t	i;
+	size_t	j;
 
 	i = 0;
-	j = 0;
-	if (to_find[j] == '\0')
-		return (str);
-	while (str[i] != '\0')
+	if (!needle[i])
+		return ((char *)haystack);
+	while (haystack[i] && i < len)
 	{
 		j = 0;
-		while (str[i + j] != '\0' && str[i + j] == to_find[j])
+		while (needle[j] == haystack[j + i] && i + j < len)
 		{
-			if (to_find[j + 1] == '\0')
-				return (&str[i]);
+			if (needle[j + 1] == '\0')
+				return ((char *)haystack + i);
 			j++;
 		}
 		i++;
 	}
-	return (0);
+	return (NULL);
 }
+
 /*int main (void) 
 {
     char str[50] = "star strong storm";
     char to_find[50] = "star";
     char *text;
     
-    text = ft_strstr(str, to_find);
-    printf("The substring is: %s\n", text);
-    text = strstr(str, to_find);
+    text = ft_strnstr(str, to_find, 4);
     printf("The substring is: %s\n", text);
     return(0);
 }*/

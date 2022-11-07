@@ -5,44 +5,60 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: diarodri <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/27 12:29:58 by diarodri          #+#    #+#             */
-/*   Updated: 2022/07/27 12:42:57 by diarodri         ###   ########.fr       */
+/*   Created: 2022/11/06 23:37:23 by diarodri          #+#    #+#             */
+/*   Updated: 2022/11/07 00:21:56 by diarodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
-#include <unistd.h>
 
-int	ft_atoi(char *str)
+int	ft_atoi(const char *str)
 {
-	int	res;
 	int	i;
 	int	s;
-
-	res = 0;
+	int	res;
+	
 	i = 0;
 	s = 1;
-	while ((str[i] >= '\t' && str[i] <= '\r') || str[i] == ' ')
-		i++;
-	while (str[i] == '+' || str[i] == '-')
+	res = 0;
+	while (str[i] != '\0')
 	{
-		if (str[i] == '-')
-			s *= -1;
-		i++;
+		// if (str[i] == '-') {
+		// 	s = -1; 
+		// 	i++;
+		// }
+
+		// if (str[i] >= '0' &&  str[i] <= '9') {
+		// 	while (str[i] >= '0' &&  str[i] <= '9')
+		// 	{
+		// 		res = (res * 10) + str[i] - 48;
+		// 		i++;
+		// 	}
+		// 	return (s * res); 
+		// }
+
+		// i++;
+	
+
+		while (!(str[i] >= '0' &&  str[i] <= '9')) {
+			if (str[i] == '-') s = -1; 
+			i++;
+		}
+			
+		while (str[i] >= '0' &&  str[i] <= '9')
+		{
+			res = (res * 10) + str[i] - 48;
+			i++;
+		}
+		
+		return (s * res); 
 	}
-	while (str[i] >= '0' && str[i] <= '9')
-	{
-		res = res * 10 + str[i] - '0';
-		i++;
-	}
-	return (res * s);
+	return (0);
 }
-int	main(int argc, char *argv[])
+int	main (void)
 {
-	if (argc == 2)
-	{
-		int res = ft_atoi(argv[1]);
-		printf("%d", res);
-	}
+	char n[] = "   SS!!!SS-+--4888jjj5";
+	
+	printf("%i\n", ft_atoi(n));
 	return (0);
 }
