@@ -6,17 +6,16 @@
 /*   By: diarodri <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 10:26:23 by diarodri          #+#    #+#             */
-/*   Updated: 2022/11/03 10:26:24 by diarodri         ###   ########.fr       */
+/*   Updated: 2022/11/07 16:50:37 by diarodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
+#include "libft.h"
 
 int	ft_isprint(int c)
 {
-	if (c >= 33 && c <= 126)
-		return (1);
-	return (0);
+	return (c >= 32 && c < 127);
 }
 
 /*int	main (void)

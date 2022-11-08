@@ -6,11 +6,12 @@
 /*   By: diarodri <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 19:07:55 by diarodri          #+#    #+#             */
-/*   Updated: 2022/11/05 19:13:42 by diarodri         ###   ########.fr       */
+/*   Updated: 2022/11/07 15:54:15 by diarodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
+#include "libft.h"
 
 int ft_memcmp(const void *str1, const void *str2, size_t n)
 {
@@ -30,7 +31,7 @@ int ft_memcmp(const void *str1, const void *str2, size_t n)
 	return (*s1 - *s2);
 }
 
-int main (void) 
+/*int main (void) 
 {
    char str1[15] = "Daaaiana";
    char str2[15] = "Diana2";
@@ -47,4 +48,4 @@ int main (void)
       printf("str1 is equal to str2");
    }
    return(0);
-}
+}*/

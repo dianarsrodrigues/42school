@@ -6,13 +6,14 @@
 /*   By: diarodri <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 15:33:22 by diarodri          #+#    #+#             */
-/*   Updated: 2022/11/03 15:33:24 by diarodri         ###   ########.fr       */
+/*   Updated: 2022/11/07 15:54:15 by diarodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
+#include "libft.h"
 
-size_t	ft_strlen(const char *str)
+/*size_t	ft_strlen(const char *str)
 {
 	size_t	a;
 
@@ -22,7 +23,7 @@ size_t	ft_strlen(const char *str)
 		a++;
 	}
 	return (a);
-}
+}*/
 
 size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {

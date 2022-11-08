@@ -6,11 +6,12 @@
 /*   By: diarodri <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 13:46:13 by diarodri          #+#    #+#             */
-/*   Updated: 2022/11/03 13:46:14 by diarodri         ###   ########.fr       */
+/*   Updated: 2022/11/07 16:52:13 by diarodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
+#include "libft.h"
 
 /*size_t	ft_strlen(const char *str)
 {
@@ -40,32 +41,31 @@ void	*ft_memcpy(void *dest, const void *str, size_t n)
 	}
 }*/
 
-void	*ft_memmove(void *dest, const void *src, size_t n)
+void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	char	*csrc;
-	char	*cdest;
-	int		i;
+	size_t i;
 
-	csrc = (char *)src;
-	cdest = (char *)dest;
+	if (!dst && !src)
+		return (0);
 	i = 0;
-	if (csrc > cdest)
+	if ((size_t)dst - (size_t)src < len)
 	{
-		while (i < n)
+		i = len - 1;
+		while (i >= 0 && i < len)
 		{
-			cdest[i] = csrc[i];
-			i++;
+			((unsigned char *)dst)[i] = ((unsigned char *)src)[i];
+			i--;
 		}
 	}
 	else
 	{
-		while (i != n)
+		while (i < len)
 		{
-			cdest[n - i - 1] = csrc[n - i - 1];
+			((unsigned char *)dst)[i] = ((unsigned char *)src)[i];
 			i++;
 		}
 	}
-	return (cdest);
+	return (dst);
 }
 
 /*int	main(void)

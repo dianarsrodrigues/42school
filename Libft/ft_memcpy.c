@@ -6,38 +6,26 @@
 /*   By: diarodri <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 13:24:50 by diarodri          #+#    #+#             */
-/*   Updated: 2022/11/03 13:24:51 by diarodri         ###   ########.fr       */
+/*   Updated: 2022/11/07 15:54:15 by diarodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
+#include "libft.h"
 
-/*size_t	ft_strlen(const char *str)
+void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
-	size_t	a;
+	size_t i;
 
-	a = 0;
-	while (str[a] != '\0')
-	{
-		a++;
-	}
-	return (a);
-}*/
-
-void	*ft_memcpy(void *dest, const void *str, size_t n)
-{
-	char	*cstr;
-	char	*cdest;
-	int		i;
-
+	if (!dst && !src)
+		return (0);
 	i = 0;
-	cstr = (char *)str;
-	cdest = (char *)dest;
 	while (i < n)
 	{
-		cdest[i] = cstr[i];
+		((unsigned char *)dst)[i] = ((unsigned char *)src)[i];
 		i++;
 	}
+	return (dst);
 }
 
 /*int	main(void)

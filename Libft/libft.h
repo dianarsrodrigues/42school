@@ -6,15 +6,18 @@
 /*   By: diarodri <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 20:51:25 by diarodri          #+#    #+#             */
-/*   Updated: 2022/11/03 20:54:34 by diarodri         ###   ########.fr       */
+/*   Updated: 2022/11/08 00:05:17 by diarodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
-# define LIBFT_H
+#define LIBFT_H
 
-# include <unistd.h>
-# include <stdlib.h>
+/* #ifndef verifica se o token fornecido foi #definido anteriormente no arquivo ou em um arquivo incluído*/
+
+#include <unistd.h>
+#include <stdlib.h>
+#include <stdio.h>
 
 typedef struct	s_list
 {
@@ -62,8 +65,8 @@ void			ft_putendl_fd(char *s, int fd);
 void			ft_putnbr_fd(int n, int fd);
 
 char			*ft_substr(char const *s, unsigned int start, size_t len);
-char			*ft_strjoin(char const *s1, char const *s2);
-char			*ft_strtrim(char const *s1, char const *set);
+char	        *ft_strjoin(char const *str1, char const *str2);
+char			*ft_strtrim(char const *str, char const *set);
 char			**ft_split(char const *s, char c);
 char			*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 
