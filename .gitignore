@@ -1,5 +1,5 @@
 .DS_Store
 .vscode/
-*.o
-*.out
+libft/*.o
+libft/*.out
 libft-unit-test/
