@@ -6,13 +6,13 @@
 #    By: diarodri <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/08 11:12:27 by diarodri          #+#    #+#              #
-#    Updated: 2022/11/08 11:37:08 by diarodri         ###   ########.fr        #
+#    Updated: 2022/11/08 21:15:30 by diarodri         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
 
-CC = cc
+CC = gcc
 
 CFLAGS = -Wall -Wextra -Werror
 
@@ -41,13 +41,10 @@ BONUS_O	= $(BONUS_S:.c=.o)
 all: $(NAME)
 
 $(NAME): $(OBJS) $(INCLUDE)
-	ar rcs $(NAME) $(OBJS)
-	ranlib $(NAME)
+	ar -rcs $(NAME) $(OBJS)
 
-bonus: $(OBJS) $(INCLUDE)
-	ar rcs $(NAME) $(BONUS_O)
-	ranlib $(NAME)
-
+bonus: $(NAME) $(BONUS_O)
+	ar -rcs $(NAME) $(BONUS_O)
 
 clean:
 	rm -f *.o
@@ -57,6 +54,6 @@ fclean: clean
 
 re: fclean all
 
-so:
-	$(CC) -nostartfiles -fPIC $(CFLAGS) $(SRCS)
-	$(CC)  -nostartfiles -shared -o libft.so $(OBJS)
+#so:
+#	$(CC) -nostartfiles -fPIC $(CFLAGS) $(SRCS)
+#	$(CC)  -nostartfiles -shared -o libft.so $(OBJS)

@@ -6,49 +6,43 @@
 /*   By: diarodri <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 15:47:53 by diarodri          #+#    #+#             */
-/*   Updated: 2022/11/08 00:06:08 by diarodri         ###   ########.fr       */
+/*   Updated: 2022/11/08 21:49:16 by diarodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdio.h>
 
-/*char *ft_strtrim(char const *s1, char const *set)
+char *ft_strtrim(char const *str, char const *set)
 {
-    size_t  i;
-    size_t  j;
-    int len_s1;
-    int len;
-    char    *new;
+    size_t	start;
+	size_t	end;
+	char	*trim;
 
-    i = 0;
-    j = 0;
-    len_s1 = ft_strlen(s1);
-    
-    while (s1[i] == set[0])
-        i++;
-    len = len_s1 - i;
-    if (s1[j] != '\0')
-    {
-        new = (char*)malloc(len);
-        while (j < len)
-        {
-            new[j] = s1[j];
-            j++;
-        }
-        new[j] = '\0';
-    }
-    return (new);
+	if (str && set)
+	{
+		start = 0;
+		end = ft_strlen(str);
+		while (str[start] && ft_strchr(set, str[start]))
+			start++;
+		while (str[end - 1] && ft_strchr(set, str[end - 1]) && end > start)
+			end--;
+		trim = (char *)malloc(sizeof(char) * (end - start + 1));
+		if (!trim)
+			return (NULL);
+		ft_strlcpy(trim, &str[start], end - start + 1);
+		return (trim);
+	}
+	return (NULL);
 }
 
-int		main()
+/*int		main(void)
 {
-	char *str = "aaaaasaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaasad";
-	char *tirar = "s";
+	char *str = "Diana Rodrigues";
+	char *tirar = "ana";
 	char *here;
 
 	here = ft_strtrim(str, tirar);
 	printf("%s\n", str);
 	printf("%s", here);
-
 }*/
