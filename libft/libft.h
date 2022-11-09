@@ -11,15 +11,16 @@
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
-#define LIBFT_H
+# define LIBFT_H
 
-/* #ifndef verifica se o token fornecido foi #definido anteriormente no arquivo ou em um arquivo incluído*/
+/* #ifndef verifica se o token fornecido foi #definido 
+anteriormente no arquivo ou em um arquivo incluído*/
 
-#include <unistd.h>
-#include <stdlib.h>
-#include <stdio.h>
+# include <unistd.h>
+# include <stdlib.h>
+# include <stdio.h>
 
-typedef struct	s_list
+typedef struct s_list
 {
 	void			*content;
 	struct s_list	*next;

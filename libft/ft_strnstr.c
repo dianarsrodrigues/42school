@@ -23,6 +23,8 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	i = 0;
 	if (little[i] == '\0')
 		return ((char *)big);
+	if (len == 0)
+		return (NULL);
 	while (big[i] != '\0' && i < len)
 	{
 		j = 0;
@@ -37,12 +39,14 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	return (NULL);
 }
 
-/*int		main()
+/*int	main(void)
 {
-	char big[] = "Ola, quem mesmo fala? Não seai. Quem não mesmo sei. Não sei mesmo.";
+	char big[] = "Ola, quem mesmo fala? Não seai. 
+	Quem não mesmo sei. Não sei mesmo.";
 	char little[] = "seai";
 
-	char c[] = "Ola, quem mesmo fala? Não seai. Quem não mesmo sei. Não sei mesmo.";
+	char c[] = "Ola, quem mesmo fala? Não seai. 
+	Quem não mesmo sei. Não sei mesmo.";
 	char d[] = "seai";
 
 	printf("\n%s", strnstr(big, little, 1));
