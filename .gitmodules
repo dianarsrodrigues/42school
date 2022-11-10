@@ -2,6 +2,6 @@
     path = libft-unit-test
     url = git@github.com:alelievr/libft-unit-test.git
 
-    [submodule "libft-war-machine"]
+[submodule "libft-war-machine"]
     path = libft-war-machine
     url = git@github.com:0x050f/libft-war-machine.git
