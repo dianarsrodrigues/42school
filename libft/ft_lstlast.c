@@ -12,17 +12,17 @@
 
 #include "libft.h"
 
-t_list *ft_lstlast(t_list *lst)
+t_list	*ft_lstlast(t_list *lst)
 {
 	t_list	*last;
 
 	if (!lst)
 		return (NULL);
-    last = lst;
-    while(last->next != NULL)
-    {
-        last = last->next;
-    }
+	last = lst;
+	while (last->next != NULL)
+	{
+		last = last->next;
+	}
 	return (last);
 }
 
@@ -43,9 +43,11 @@ t_list *ft_lstlast(t_list *lst)
 	dois->next = tres;
 	tres->next = quatro;
 
-	printf("\nO ultimo t_list eh -- %s -- e tem pointer de %p \n", (char *)quatro->content, quatro->next);
+	printf("\nO ultimo t_list eh -- %s -- e tem pointer de %p \n", 
+	(char *)quatro->content, quatro->next);
 
 	last = ft_lstlast(head);
 
-	printf("O ultimo t_list eh -- %s -- e tem pointer de %p \n", (char *)last->content, last->next);
+	printf("O ultimo t_list eh -- %s -- e tem pointer de %p \n", 
+	(char *)last->content, last->next);
 }*/

@@ -13,37 +13,9 @@
 #include <stdio.h>
 #include "libft.h"
 
-/*size_t	ft_strlen(const char *str)
-{
-	size_t	a;
-
-	a = 0;
-	while (str[a] != '\0')
-	{
-		a++;
-	}
-	return (a);
-}
-
-void	*ft_memcpy(void *dest, const void *str, size_t n)
-{
-	char	*cstr;
-	char	*cdest;
-	int		i;
-
-	i = 0;
-	cstr = (char *)str;
-	cdest = (char *)dest;
-	while (i < n)
-	{
-		cdest[i] = cstr[i];
-		i++;
-	}
-}*/
-
 void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	size_t i;
+	size_t	i;
 
 	if (!dst && !src)
 		return (0);

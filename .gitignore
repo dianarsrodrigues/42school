@@ -3,3 +3,4 @@
 libft/*.o
 libft/*.out
 libft-unit-test/
+libft-war-machine/
