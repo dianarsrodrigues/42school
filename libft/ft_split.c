@@ -16,22 +16,22 @@
 static int	count_words(const char *str, char c)
 {
 	int	i;
-	int	trigger;
+	int	word;	
 
 	i = 0;
-	trigger = 0;
-	while (*str)
+	word = 0;
+	while (str && str[i])
 	{
-		if (*str != c && trigger == 0)
+		if (str[i] != c)
 		{
-			trigger = 1;
-			i++;
+			word++;
+			while (str[i] != c && str[i] != '\0')
+				i++;
 		}
-		else if (*str == c)
-			trigger = 0;
-		str++;
+		else
+			i++;
 	}
-	return (i);
+	return (word);
 }
 
 static char	*word_dup(const char *str, int start, int finish)
@@ -40,7 +40,7 @@ static char	*word_dup(const char *str, int start, int finish)
 	int		i;
 
 	i = 0;
-	word = malloc((finish - start + 1) * sizeof(char));
+	word = malloc((finish - start + 1) * sizeof(char *));
 	while (start < finish)
 		word[i++] = str[start++];
 	word[i] = '\0';
@@ -54,9 +54,9 @@ char	**ft_split(char const *s, char c)
 	int		index;
 	char	**split;
 
-	split = malloc((count_words(s, c) + 1) * sizeof(char *));
+	split = (char **)malloc((count_words(s, c) + 1) * sizeof(char *));
 	if (!s || !split)
-		return (0);
+		return (NULL);
 	i = 0;
 	j = 0;
 	index = -1;
@@ -77,18 +77,13 @@ char	**ft_split(char const *s, char c)
 
 /*int		main(void)
 {
-	char *texto = "aaaaaaabaaaabaaaa";
-	char delimiter = 'b';
+	char str[] = "diana    rodrigues ff";
+	char delimiter = ' ';
 	char **array;
-	int size = 10;
-	int i;
-	i = 0;
 
-	array = ft_split(texto, delimiter);
-
-	while(i < size)
-	{
-		printf("->%s\n", array[i++]);
-	}
+	array = ft_split(str, delimiter);
+	printf("%s\n", array[0]);
+	printf("%s\n", array[1]);
+	printf("%s\n", array[2]);
 	return(0);
 }*/

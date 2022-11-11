@@ -12,14 +12,14 @@
 
 #include "libft.h"
 
-static int	absolute_value(int nbr)
+static int	absolute_value(long nbr)
 {
 	if (nbr < 0)
 		return (-nbr);
 	return (nbr);
 }
 
-static int	get_len(int nbr)
+static int	get_len(long nbr)
 {
 	int	len;
 
@@ -40,7 +40,7 @@ char	*ft_itoa(int n)
 	int		len;
 
 	len = get_len(n);
-	result = malloc(sizeof(char) * (len + 1));
+	result = (char *)malloc(sizeof(char) * (len + 1));
 	if (result == NULL)
 		return (NULL);
 	result[len] = '\0';
