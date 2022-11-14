@@ -6,7 +6,7 @@
 #    By: diarodri <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/08 11:12:27 by diarodri          #+#    #+#              #
-#    Updated: 2022/11/08 21:15:30 by diarodri         ###   ########.fr        #
+#    Updated: 2022/11/12 19:17:22 by diarodri         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = libft.a
 
 CC = cc
 
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -c
 
 INCLUDE	= libft.h
 
@@ -37,8 +37,14 @@ all: $(NAME)
 $(NAME): $(OBJS) $(INCLUDE)
 	ar -rcs $(NAME) $(OBJS)
 
+$(OBJS): $(SRCS)
+	$(CC) $(CFLAGS) $(SRCS)
+
 bonus: $(NAME) $(BONUS_O) $(INCLUDE)
 	ar -rcs $(NAME) $(BONUS_O)
+
+$(BONUS_O): $(BONUS_S)
+	$(CC) $(CFLAGS) $(BONUS_S)
 
 clean:
 	rm -f *.o
