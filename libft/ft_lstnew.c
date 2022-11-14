@@ -23,12 +23,3 @@ t_list	*ft_lstnew(void *content)
 	result->next = NULL;
 	return (result);
 }
-
-/*int		main(void)
-{
-	char	str[] = "lorem ipsum dolor sit";
-	t_list	*elem;
-
-	elem = ft_lstnew((void *)str);
-	printf("\n%s\n", (char *)elem->content);
-}*/

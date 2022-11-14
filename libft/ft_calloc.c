@@ -20,8 +20,8 @@ void	*ft_calloc(size_t count, size_t size)
 
 	tot_size = size * count;
 	dst = malloc(tot_size);
-	if (!dst)
-		return (0);
+	if (dst == NULL)
+		return (NULL);
 	ft_memset(dst, 0, tot_size);
 	return (dst);
 }

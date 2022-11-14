@@ -18,7 +18,7 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	char	*here;
 
 	i = 0;
-	if (!s || !f)
+	if (!s)
 		return (NULL);
 	here = malloc((ft_strlen(s) + 1) * sizeof(char));
 	if (here == NULL)

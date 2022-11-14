@@ -12,52 +12,58 @@
 
 #include "libft.h"
 
-static int	absolute_value(long nbr)
+static int	ft_get_size(long n)
 {
-	if (nbr < 0)
-		return (-nbr);
-	return (nbr);
-}
+	int	i;
+	int	negative;
 
-static int	get_len(long nbr)
-{
-	int	len;
-
-	len = 0;
-	if (nbr <= 0)
-		++len;
-	while (nbr != 0)
+	i = 0;
+	negative = 0;
+	if (n == 0)
+		return (1);
+	if (n < 0)
 	{
-		++len;
-		nbr = nbr / 10;
+		negative = 1;
+		n = -n;
 	}
-	return (len);
+	while (n != 0)
+	{
+		n = n / 10;
+		i++;
+	}
+	if (negative)
+		return (i + 1);
+	return (i);
 }
 
 char	*ft_itoa(int n)
 {
 	char	*result;
-	int		len;
+	int		size;
+	long	nl;
 
-	len = get_len(n);
-	result = (char *)malloc(sizeof(char) * (len + 1));
+	nl = n;
+	size = ft_get_size(nl);
+	result = (char *)malloc(sizeof(char) * (size + 1));
 	if (result == NULL)
 		return (NULL);
-	result[len] = '\0';
-	if (n < 0)
-		result[0] = '-';
-	else if (n == 0)
+	if (nl == 0)
 		result[0] = '0';
-	while (n != 0)
+	if (nl < 0)
 	{
-		--len;
-		result[len] = absolute_value(n % 10) + '0';
-		n = n / 10;
+		result[0] = '-';
+		nl = nl * -1;
+	}
+	result[size--] = '\0';
+	while (nl > 0)
+	{
+		result[size--] = (nl % 10) + '0';
+		nl = nl / 10;
 	}
 	return (result);
 }
 
-/*int		main(void)
+/*int	main(void)
 {
 	int number1 = 123456789;
 	int number2 = 1;
@@ -72,17 +78,17 @@ char	*ft_itoa(int n)
 	int number11 = -42;
 	int number12 = -422;
 
-	ft_itoa(number1);
-	ft_itoa(number2);
-	ft_itoa(number3);
-	ft_itoa(number4);
-	ft_itoa(number5);
-	ft_itoa(number6);
-	ft_itoa(number7);
-	ft_itoa(number8);
-	ft_itoa(number9);
-	ft_itoa(number10);
-	ft_itoa(number11);
-	ft_itoa(number12);
+	printf("%s\n",ft_itoa(number1));
+	printf("%s\n",ft_itoa(number2));
+	printf("%s\n",ft_itoa(number3));
+	printf("%s\n",ft_itoa(number4));
+	printf("%s\n",ft_itoa(number5));
+	printf("%s\n",ft_itoa(number6));
+	printf("%s\n",ft_itoa(number7));
+	printf("%s\n",ft_itoa(number8));
+	printf("%s\n",ft_itoa(number9));
+	printf("%s\n",ft_itoa(number10));
+	printf("%s\n",ft_itoa(number11));
+	printf("%s\n",ft_itoa(number12));
 	return (0);
 }*/

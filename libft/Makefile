@@ -14,7 +14,7 @@ NAME = libft.a
 
 CC = cc
 
-CFLAGS = -Wall -Wextra -Werror -c
+CFLAGS = -Wall -Wextra -Werror
 
 INCLUDE	= libft.h
 
@@ -37,14 +37,8 @@ all: $(NAME)
 $(NAME): $(OBJS) $(INCLUDE)
 	ar -rcs $(NAME) $(OBJS)
 
-$(OBJS): $(SRCS)
-	$(CC) $(CFLAGS) $(SRCS)
-
-bonus: $(NAME) $(BONUS_O) $(INCLUDE)
-	ar -rcs $(NAME) $(BONUS_O)
-
-$(BONUS_O): $(BONUS_S)
-	$(CC) $(CFLAGS) $(BONUS_S)
+bonus: $(OBJS) $(BONUS_O) $(INCLUDE)
+	ar -rcs $(NAME) $(BONUS_O) $(OBJS)
 
 clean:
 	rm -f *.o
@@ -56,4 +50,4 @@ re: fclean all
 
 so:
 	$(CC) -nostartfiles -fPIC $(CFLAGS) $(SRCS) $(BONUS_S)
-	$(CC)  -nostartfiles -shared -o libft.so $(OBJS) $(BONUS_O)
+	$(CC) -nostartfiles -shared -o libft.so $(OBJS) $(BONUS_O)
