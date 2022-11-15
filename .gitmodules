@@ -1,11 +1,11 @@
 [submodule "libft-unit-test"]
-    path = libft-unit-test
+    path = 00-libft/libft-unit-test
     url = git@github.com:alelievr/libft-unit-test.git
 
 [submodule "libft-war-machine"]
-    path = libft-war-machine
+    path = 00-libft/libft-war-machine
     url = git@github.com:0x050f/libft-war-machine.git
 
 [submodule "libftTester"]
-    path = libftTester
+    path = 00-libft/libftTester
     url = git@github.com:Tripouille/libftTester.git
