@@ -28,11 +28,13 @@ char	*ft_strtrim(char const *str, char const *set)
 
 /*int		main(void)
 {
-	char *str = "Diana Rodrigues";
-	char *tirar = "ana";
+	char *str = "Diana Raquel Rodrigues";
+	char *tirar = "Rodrigues";
 	char *here;
 
 	here = ft_strtrim(str, tirar);
+	here2 = strtok(str2, tirar2);
 	printf("%s\n", str);
 	printf("%s", here);
+	
 }*/

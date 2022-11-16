@@ -33,8 +33,8 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char str[] = "Esta eh a string que vou passar.";
 	char *asd;
-	int start = 2;
-	int length = 5;
+	int start = 3;
+	int length = 10;
 
 	printf("%s\n", str);
 	asd = ft_substr(str, start, length);
