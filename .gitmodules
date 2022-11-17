@@ -9,3 +9,11 @@
 [submodule "libftTester"]
     path = 00-libft/libftTester
     url = git@github.com:Tripouille/libftTester.git
+
+[submodule "gnl-station-tester"]
+    path = 01-get_next_line/get_next_line/gnl-station-tester
+    url = git@github.com:kodpe/gnl-station-tester.git
+
+[submodule "gnlTester"]
+    path = 01-get_next_line/get_next_line/gnlTester
+    url = git@github.com:Tripouille/gnlTester.git
