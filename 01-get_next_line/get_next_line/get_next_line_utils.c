@@ -55,10 +55,8 @@ char	*ft_strjoin(char *src, char *buffer)
 		src = (char *)malloc(1 * sizeof(char));
 		src[0] = '\0';
 	}
-	if (!src || !buffer)
-		return (NULL);
-	str = (char *)malloc(sizeof(char) * ((ft_strlen(src) + ft_strlen(buffer)) + 1));
-	if (str == NULL)
+	str = malloc(sizeof(char) * ((ft_strlen(src) + ft_strlen(buffer)) + 1));
+	if (!src || !buffer || str == NULL)
 		return (NULL);
 	i = 0;
 	j = 0;
@@ -83,7 +81,7 @@ char	*ft_read_line(char *src)
 	i = 0;
 /*	procurar pelo caractere nulo '\0' ou quebra de linha '\n' */
 	if (src[i] == '\0')
-		return (NULL);	
+		return (NULL);
 	while (src[i] != '\0' && src[i] != '\n')
 		i++;
 /*	alocar memoria suficiente em nossa nova string */
@@ -102,10 +100,7 @@ char	*ft_read_line(char *src)
 	}
 /*	caso nossa string tenha sido copiada ate a quebra de linha, temos que obritoriamente printar uma quebra de linha */
 	if (src[i] == '\n')
-	{
-		str[i] = '\n';
-		i++;
-	}
+		str[i++] = '\n';
 	str[i] = '\0';
 	return (str);
 }

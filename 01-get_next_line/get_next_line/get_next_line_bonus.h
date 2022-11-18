@@ -18,6 +18,10 @@
 # include <sys/uio.h>
 # include <unistd.h>
 
+# ifndef BUFFEER_SIZE 
+#  define BUFFEER_SIZE 42
+#  endif
+
 char    *get_next_line(int fd);
 char	*get_line(char *src, int fd);
 
