@@ -12,6 +12,7 @@
 
 #include "ft_printf.h"
 #include <stdio.h>
+#include <limits.h>
 
 static int	ft_check_format(va_list *args, char c)
 {
@@ -23,25 +24,25 @@ static int	ft_check_format(va_list *args, char c)
 	else if (c == 's')
 		len += ft_conv_str(va_arg(*args, char *));
 	else if (c == 'p')
-		len += ft_conv_ptr(va_arg(*args, unsigned long ));
+		len += ft_conv_ptr(va_arg(*args, unsigned long long));
 	else if (c == 'd' || c == 'i')
 		len += ft_conv_nbr(va_arg(*args, int));
-	else if (c == 'u')
-		len += ft_conv_nbr(va_arg(*args, unsigned int));
+	if (c == 'u')
+		len += ft_conv_unsigned(va_arg(*args, unsigned int));
 	else if (c == 'x' || c == 'X')
 		len += ft_conv_hex(va_arg(*args, unsigned int), c);
 	else if (c == '%')
-    {
+	{
 		len++;
-        write(1,"%",1);
-    }
+		write (1, "%", 1);
+	}
 	return (len);
 }
 
 int	ft_printf(const char *s, ...)
 {
 	int		i;
-    int		len;
+	int		len;
 	va_list	args;
 
 	i = 0;
@@ -67,22 +68,89 @@ int	ft_printf(const char *s, ...)
 /*int main(int ac, char ** av)
 {
 	
-	ft_printf("%c", '0');
+	ft_printf(" %p ", -1);
 	printf("\n");
-	ft_printf(" %c ", '0');
+	ft_printf(" %p ", 1);
 	printf("\n");
-	ft_printf(" %c", '0' - 256);
+	ft_printf(" %p ", 15);
 	printf("\n");
-	ft_printf("%c ", '0' + 256);
+	ft_printf(" %p ", 16);
 	printf("\n");
-	ft_printf(" %c %c %c ", '0', 0, '1');
+	ft_printf(" %p ", 17);
 	printf("\n");
-	ft_printf(" %c %c %c ", ' ', ' ', ' ');
+	ft_printf(" %p %p ", LONG_MIN, LONG_MAX);
+	printf(" %p %p ", LONG_MIN, LONG_MAX);
 	printf("\n");
-	ft_printf(" %c %c %c ", '1', '2', '3');
+	ft_printf(" %p %p ", INT_MIN, INT_MAX);
 	printf("\n");
-	ft_printf(" %c %c %c ", '2', '1', 0);
+	ft_printf(" %p %p ", ULONG_MAX, -ULONG_MAX);
+	printf(" %p %p ", ULONG_MAX, -ULONG_MAX);
 	printf("\n");
-	ft_printf(" %c %c %c ", 0, '1', '2');
+	ft_printf(" %p %p ", 0, 0);
+	printf(" %p %p ", 0, 0);
 	return (0);
+}
+
+int main(int ac, char ** av)
+{
+        ft_printf(" %u ", 0);
+        printf("\n");
+        ft_printf(" %u ", -1);
+        printf(" %u ", -1);
+        printf("\n");
+        ft_printf(" %u ", 1);
+        printf("\n");
+        ft_printf(" %u ", 9);
+        printf("\n");
+        ft_printf(" %u ", 10);
+        printf("\n");
+        ft_printf(" %u ", 11);
+        printf("\n");
+        ft_printf(" %u ", 15);
+        printf("\n");
+        ft_printf(" %u ", 16);
+        printf("\n");
+        ft_printf(" %u ", 17);
+        printf("\n");
+        ft_printf(" %u ", 99);
+        printf("\n");
+        ft_printf(" %u ", 100);
+        printf("\n");
+        ft_printf(" %u ", 101);
+        printf("\n");
+        ft_printf(" %u ", -9);
+        printf("\n");
+        ft_printf(" %u ", -10);
+        printf("\n");
+        ft_printf(" %u ", -11);
+        printf("\n");
+        ft_printf(" %u ", -14);
+        printf("\n");
+        ft_printf(" %u ", -15);
+        printf("\n");
+        ft_printf(" %u ", -16);
+        printf("\n");
+        ft_printf(" %u ", -99);
+        printf("\n");
+        ft_printf(" %u ", -100);
+        printf("\n");
+        ft_printf(" %u ", -101);
+        printf("\n");
+        ft_printf(" %u ", INT_MAX);
+        printf("\n");
+        ft_printf(" %u ", INT_MIN);
+        printf("\n");
+        ft_printf(" %u ", LONG_MAX);
+        printf("\n");
+        ft_printf(" %u ", LONG_MIN);
+        printf("\n");
+        ft_printf(" %u ", UINT_MAX);
+        printf("\n");
+        ft_printf(" %u ", ULONG_MAX);
+        printf("\n");
+        ft_printf(" %u ", 9223372036854775807LL);
+        printf("\n");
+        ft_printf(" %u %u %u %u %u %u %u", INT_MAX, INT_MIN, LONG_MAX, 
+        LONG_MIN, ULONG_MAX, 0, -42);
+        return (0);
 }*/

@@ -6,7 +6,7 @@
 #    By: diarodri <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/21 16:55:08 by diarodri          #+#    #+#              #
-#    Updated: 2022/11/22 00:24:42 by diarodri         ###   ########.fr        #
+#    Updated: 2022/11/22 13:51:04 by diarodri         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,9 @@ SRCS = ft_printf.c\
 		ft_conv_str.c\
 		ft_conv_ptr.c\
 		ft_conv_nbr.c\
+		ft_conv_unsigned.c\
 		ft_itoa.c\
+		ft_utoa.c\
 		ft_conv_hex.c\
 		ft_len_hex_ptr.c\
 

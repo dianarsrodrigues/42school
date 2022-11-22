@@ -17,18 +17,19 @@
 # include <stdlib.h>
 # include <unistd.h>
 
-int ft_printf(const char *s, ...);
+int		ft_printf(const char *s, ...);
 
-int ft_conv_char(char c);
-int	ft_conv_str(char *str);
-int	ft_conv_ptr(unsigned long n);
-int	ft_conv_nbr(int n);
-int	ft_conv_hex(unsigned long n, const char c);
+int		ft_conv_char(char c);
+int		ft_conv_str(char *str);
+int		ft_conv_ptr(unsigned long long n);
+int		ft_conv_nbr(int n);
+int		ft_conv_unsigned(unsigned int n);
+int		ft_conv_hex(unsigned long n, const char c);
 
 void	ft_putchar(char c);
 size_t	ft_strlen(const char *str);
-int	ft_len_hex_ptr(unsigned long n);
+int		ft_len_hex_ptr(unsigned long n);
 char	*ft_itoa(int n);
+char	*ft_utoa(unsigned int n);
 
-
-# endif
+#endif

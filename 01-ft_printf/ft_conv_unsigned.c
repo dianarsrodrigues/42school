@@ -1,45 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_conv_ptr.c                                      :+:      :+:    :+:   */
+/*   ft_conv_nbr.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: diarodri <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/21 22:47:40 by diarodri          #+#    #+#             */
-/*   Updated: 2022/11/22 01:48:15 by diarodri         ###   ########.fr       */
+/*   Created: 2022/11/21 22:47:29 by diarodri          #+#    #+#             */
+/*   Updated: 2022/11/21 23:51:08 by diarodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_put_ptr(unsigned long long n)
+int	ft_conv_unsigned(unsigned int n)
 {
-	if (n >= 16)
-	{
-		ft_put_ptr(n / 16);
-		ft_put_ptr(n % 16);
-	}
-	else
-	{
-		if (n < 10)
-			ft_putchar(n + '0');
-		else
-			ft_putchar(n - 10 + 'a');
-	}
-}
-
-int	ft_conv_ptr(unsigned long long n)
-{
-	int	len;
+	int		len;
+	char	*str;
 
 	len = 0;
-	if (n == 0)
-		len += write(1, "(nil)", 5);
-	else
-	{
-		len += write(1, "0x", 2);
-		ft_put_ptr(n);
-		len += ft_len_hex_ptr(n);
-	}
+	str = ft_utoa(n);
+	len = ft_conv_str(str);
+	free(str);
 	return (len);
 }
