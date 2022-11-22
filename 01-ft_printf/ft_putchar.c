@@ -1,33 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_putchar.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: diarodri <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/03 10:32:23 by diarodri          #+#    #+#             */
-/*   Updated: 2022/11/07 15:54:15 by diarodri         ###   ########.fr       */
+/*   Created: 2022/11/07 15:45:53 by diarodri          #+#    #+#             */
+/*   Updated: 2022/11/21 23:56:23 by diarodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-size_t	ft_strlen(const char *str)
+void	ft_putchar(char c)
 {
-	size_t	a;
-
-	a = 0;
-	while (str[a] != '\0')
-	{
-		a++;
-	}
-	return (a);
+	write(1, &c, 1);
 }
-/*int	main(void)
-{
-	char a[15] = "Diana";
-
-	printf("Length of string a = %zu \n",ft_strlen(a));
-	return(0);
-	// using the %zu format specifier to print size_t
-}*/

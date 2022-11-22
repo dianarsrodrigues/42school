@@ -4,4 +4,5 @@
 00-libft/libft/*.out
 00-libft/libft-unit-test/
 00-libft/libft-war-machine/
-00-libft/libftTester
+00-libft/libftTester/
+01-ft_printf/printfTester/
