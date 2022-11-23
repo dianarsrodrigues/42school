@@ -6,7 +6,7 @@
 #    By: diarodri <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/21 16:55:08 by diarodri          #+#    #+#              #
-#    Updated: 2022/11/22 13:51:04 by diarodri         ###   ########.fr        #
+#    Updated: 2022/11/23 11:18:50 by diarodri         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,6 @@ CFLAGS = -Wall -Wextra -Werror
 
 SRCS = ft_printf.c\
 		ft_putchar.c\
-		ft_strlen.c\
 		ft_conv_char.c\
 		ft_conv_str.c\
 		ft_conv_ptr.c\

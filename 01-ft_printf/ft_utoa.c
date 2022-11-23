@@ -21,11 +21,6 @@ static int	ft_get_size(long n)
 	negative = 0;
 	if (n == 0)
 		return (1);
-	if (n < 0)
-	{
-		negative = 1;
-		n = -n;
-	}
 	while (n != 0)
 	{
 		n = n / 10;
