@@ -1,43 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   02_ft_strcspn.c                                    :+:      :+:    :+:   */
+/*   02_ft_strpbrk.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: diarodri <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/20 16:09:31 by diarodri          #+#    #+#             */
-/*   Updated: 2022/12/21 14:59:16 by diarodri         ###   ########.fr       */
+/*   Created: 2022/12/21 15:49:27 by diarodri          #+#    #+#             */
+/*   Updated: 2022/12/21 16:08:19 by diarodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include <string.h>
+#include <stdio.h>
 
-size_t	ft_strcspn(const char *s, const char *reject)
+char	*ft_strpbrk(const char *s1, const char *s2)
 {
-	int i = 0;
-	int j = 0;
+    int j = 0;
 
-	while (s[i] != '\0')
-	{
-		j = 0;
-		while (reject[j] != '\0')
-		{
-			if (s[i] == reject[j])
-				return (i);
-			j++;
-		}
-		i++;
-	}
-	return (i);
+    while (*s1 != '\0')
+    {
+        j = 0;
+        while (s2[j] != '\0')
+        {
+            if (*s1 == s2[j])
+                return ((char *) s1);
+            j++;
+        }
+        s1++;
+    }
+    return (0);
 }
 
-int	main(void)
+int main()
 {
-	char s[] = "ABCDEF4960";
-	char reject[] = "ABCDEF4960";
-	
-	printf("%lu\n", strcspn(s, reject));
-	printf("%lu", ft_strcspn(s, reject));
-	return (0);
+    char s1[] = "Diana";
+    char s2[] = "a";
+
+    printf("%s\n", strpbrk(s1, s2));
+    printf("%s", ft_strpbrk(s1, s2));
 }

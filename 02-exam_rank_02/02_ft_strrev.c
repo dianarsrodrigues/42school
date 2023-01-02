@@ -1,43 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   02_ft_strcspn.c                                    :+:      :+:    :+:   */
+/*   02_ft_strrev.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: diarodri <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/20 16:09:31 by diarodri          #+#    #+#             */
-/*   Updated: 2022/12/21 14:59:16 by diarodri         ###   ########.fr       */
+/*   Created: 2022/12/21 16:10:01 by diarodri          #+#    #+#             */
+/*   Updated: 2022/12/21 17:01:50 by diarodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
-#include <string.h>
 
-size_t	ft_strcspn(const char *s, const char *reject)
+char    *ft_strrev(char *str)
 {
-	int i = 0;
-	int j = 0;
+    int len = 0;
+    int i = 0;
+    int tem;
 
-	while (s[i] != '\0')
-	{
-		j = 0;
-		while (reject[j] != '\0')
-		{
-			if (s[i] == reject[j])
-				return (i);
-			j++;
-		}
-		i++;
-	}
-	return (i);
+    while (str[len] != '\0')
+        len++;
+    len = len - 1;
+    while (i < (len/2))
+    {
+        tem = str[len - i];
+        str[len - i] = str[i];
+        str[i] = tem;
+        i++;
+    }
+    return (str);
 }
 
-int	main(void)
+int main ()
 {
-	char s[] = "ABCDEF4960";
-	char reject[] = "ABCDEF4960";
-	
-	printf("%lu\n", strcspn(s, reject));
-	printf("%lu", ft_strcspn(s, reject));
-	return (0);
+    char str[10] = "Diana";
+
+    printf("%s\n", ft_strrev(str));
 }
