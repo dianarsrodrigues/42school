@@ -1,34 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   02_is_power_of_2.c                                 :+:      :+:    :+:   */
+/*   02_print_bits.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: diarodri <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/21 18:36:24 by diarodri          #+#    #+#             */
-/*   Updated: 2022/12/22 01:26:32 by diarodri         ###   ########.fr       */
+/*   Created: 2023/01/03 13:16:09 by diarodri          #+#    #+#             */
+/*   Updated: 2023/01/03 13:16:10 by diarodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include <unistd.h>
 
-int	is_power_of_2(unsigned int n)
+void	print_bits(unsigned char octet)
 {
-    unsigned int number = 1;
-    
-    while (number <= n)
-    {
-    	if (number == n)
-    		return 1;
-    	number = number * 2;
-    }
-    return 0;
+	int n = 8;
+	unsigned char bit;
+	
+	while (n--)
+	{
+		bit = (octet >> n & 1) + 48;
+		write(1, &bit, 1);
+	}
 }
 
 int main()
 {
-    int n = 1;
-
-    printf("%i", is_power_of_2(n));
-    return (0);
+	print_bits(3);
+	return(0);
 }

@@ -1,34 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   02_is_power_of_2.c                                 :+:      :+:    :+:   */
+/*   02_max.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: diarodri <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/21 18:36:24 by diarodri          #+#    #+#             */
-/*   Updated: 2022/12/22 01:26:32 by diarodri         ###   ########.fr       */
+/*   Created: 2023/01/03 12:04:15 by diarodri          #+#    #+#             */
+/*   Updated: 2023/01/03 12:04:16 by diarodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
-
-int	is_power_of_2(unsigned int n)
+int	max(int* tab, unsigned int len)
 {
-    unsigned int number = 1;
-    
-    while (number <= n)
-    {
-    	if (number == n)
-    		return 1;
-    	number = number * 2;
-    }
-    return 0;
+	unsigned int i = 0;
+	
+	if (!tab)
+		return (0);
+	while (i < len)
+	{
+		if(tab[i] < tab[len - 1])
+			i++;
+		else
+			len--;	
+	}
+	return (tab[i]);
 }
 
-int main()
+int main ()
 {
-    int n = 1;
-
-    printf("%i", is_power_of_2(n));
-    return (0);
+	int n[4] = {1,6,2,5};
+	
+	printf("%i", max(n, 4));
+	return (0);
 }

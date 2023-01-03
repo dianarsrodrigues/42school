@@ -1,34 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   02_is_power_of_2.c                                 :+:      :+:    :+:   */
+/*   02_reverse_bits.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: diarodri <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/21 18:36:24 by diarodri          #+#    #+#             */
-/*   Updated: 2022/12/22 01:26:32 by diarodri         ###   ########.fr       */
+/*   Created: 2023/01/03 13:53:23 by diarodri          #+#    #+#             */
+/*   Updated: 2023/01/03 13:53:24 by diarodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
+#include <unistd.h>
 
-int	is_power_of_2(unsigned int n)
+unsigned char	reverse_bits(unsigned char octet)
 {
-    unsigned int number = 1;
-    
-    while (number <= n)
-    {
-    	if (number == n)
-    		return 1;
-    	number = number * 2;
-    }
-    return 0;
+	unsigned char bit;
+	int n = 8;
+	
+	while (n > 0)
+	{
+		bit = bit * 2 + (octet % 2);
+		octet = octet / 2;
+		n--;
+	}
+	return (bit);
 }
 
-int main()
+int main ()
 {
-    int n = 1;
-
-    printf("%i", is_power_of_2(n));
-    return (0);
+	printf("%d", reverse_bits(38));
+	return (0);
 }

@@ -1,34 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   02_is_power_of_2.c                                 :+:      :+:    :+:   */
+/*   02_swap_bits.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: diarodri <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/21 18:36:24 by diarodri          #+#    #+#             */
-/*   Updated: 2022/12/22 01:26:32 by diarodri         ###   ########.fr       */
+/*   Created: 2023/01/03 15:01:01 by diarodri          #+#    #+#             */
+/*   Updated: 2023/01/03 15:01:03 by diarodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 
-int	is_power_of_2(unsigned int n)
+unsigned char	swap_bits(unsigned char octet)
 {
-    unsigned int number = 1;
-    
-    while (number <= n)
-    {
-    	if (number == n)
-    		return 1;
-    	number = number * 2;
-    }
-    return 0;
+	return ((octet >> 4) + (octet << 4));
 }
 
-int main()
+int main ()
 {
-    int n = 1;
-
-    printf("%i", is_power_of_2(n));
-    return (0);
+	printf("%d", swap_bits(12));
+	return (0);
 }
+

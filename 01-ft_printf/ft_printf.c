@@ -27,7 +27,7 @@ static int	ft_check_format(va_list *args, char c)
 		len += ft_conv_ptr(va_arg(*args, unsigned long long));
 	else if (c == 'd' || c == 'i')
 		len += ft_conv_nbr(va_arg(*args, int));
-	if (c == 'u')
+	else if (c == 'u')
 		len += ft_conv_unsigned(va_arg(*args, unsigned int));
 	else if (c == 'x' || c == 'X')
 		len += ft_conv_hex(va_arg(*args, unsigned int), c);
